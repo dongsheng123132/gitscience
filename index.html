@@ -230,6 +230,30 @@
     font-family:var(--mono); font-size:12px; color:var(--fg-faint); display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap}
   .disclaimer{margin-top:14px; font-size:11.5px; color:var(--fg-faint); max-width:70ch; line-height:1.6; font-family:var(--cn)}
 
+  /* 进展 stats */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:36px}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:linear-gradient(165deg,var(--panel),#0b0f16); border:1px solid var(--line);
+    border-radius:14px; padding:26px 22px}
+  .stat .v{font-family:var(--cn-serif); font-weight:900; font-size:clamp(34px,4.4vw,52px); line-height:1; color:var(--amber)}
+  .stat .v small{font-family:var(--mono); font-size:.4em; color:var(--cyan); font-weight:600; margin-left:4px; vertical-align:middle}
+  .stat .l{font-family:var(--mono); font-size:12.5px; color:var(--fg-dim); margin-top:12px; line-height:1.55}
+  .stats-note{font-size:16.5px; color:var(--fg-dim); max-width:58ch}
+  .stats-note b{color:var(--fg)}
+
+  /* FAQ */
+  .faq{margin-top:34px; display:flex; flex-direction:column; gap:12px; max-width:880px}
+  .faq details{background:var(--ink-2); border:1px solid var(--line); border-radius:12px; overflow:hidden; transition:border-color .2s}
+  .faq details[open]{border-color:rgba(240,181,74,.38)}
+  .faq summary{list-style:none; cursor:pointer; padding:18px 22px; font-weight:500; font-size:16.5px;
+    color:var(--fg); display:flex; justify-content:space-between; align-items:center; gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pm{font-family:var(--mono); color:var(--amber); font-size:20px; flex:none; transition:transform .25s}
+  .faq details[open] summary .pm{transform:rotate(45deg)}
+  .faq .a{padding:0 22px 20px; color:var(--fg-dim); font-size:15px; line-height:1.75}
+  .faq .a a{color:var(--cyan); border-bottom:1px solid var(--cyan)}
+  .faq .a b{color:var(--fg)}
+
   /* reveal */
   .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1; transform:none}
@@ -270,6 +294,17 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "description": "开源论文稳健性体检：统计自洽(statcheck/GRIM)、图像查重、机构/作者级撤稿核对(OpenAlex + Retraction Watch)。",
       "publisher": { "@id": "https://gitscience.net/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "GitScience 是什么？", "acceptedAnswer": { "@type": "Answer", "text": "AI 时代的开源科研基础设施。把科学从「写论文」变成「提交实验」：任何人提交一个科研设想，AI 拆成可执行实验方案，别人可以 Fork、复现、改进，数据回流持续迭代。" } },
+        { "@type": "Question", "name": "GitScience 是开源的吗？", "acceptedAnswer": { "@type": "Answer", "text": "是，门户与核心工具均开源(MIT)。论文体检 PaperGuard 已在 GitHub 开源可用，本门户源码亦公开。" } },
+        { "@type": "Question", "name": "GitScience 和 Sakana AI Scientist、AlphaFold、自驱实验室有什么不同？", "acceptedAnswer": { "@type": "Answer", "text": "它们大多是机构视角、大模型、大实验室；GitScience 是开源极客视角——人人可参与的 AI 科学协作网络，就像 GitHub 当年对软件工程做的事。" } },
+        { "@type": "Question", "name": "GitScience 现在能用什么？", "acceptedAnswer": { "@type": "Answer", "text": "论文体检 PaperGuard 已开源可用(统计自洽、图像查重、机构/作者级撤稿核对，含在线体验)；科研虾 SciClaw 内测中；实验 Fork 内核构建中。" } },
+        { "@type": "Question", "name": "如何参与 GitScience？", "acceptedAnswer": { "@type": "Answer", "text": "提交科研设想、Fork 实验、贡献数据或代码，或联系贺去病 AI 工作室共建。欢迎高校实验室、地方科创、开源开发者加入。" } },
+        { "@type": "Question", "name": "GitScience 和虾盘 U-Claw 是什么关系？", "acceptedAnswer": { "@type": "Answer", "text": "U-Claw 是团队已在运营的开源项目与现金流底座；GitScience 是面向科研的产品线，同属贺去病 AI 工作室。" } }
+      ]
     }
   ]
 }
@@ -290,6 +325,8 @@
       <a href="#pillars">产品</a>
       <a href="#flow">工作流</a>
       <a href="#why">为什么</a>
+      <a href="#status">进展</a>
+      <a href="#faq">FAQ</a>
       <a href="#build">共建</a>
     </nav>
     <a class="gh" href="https://github.com/dongsheng123132" target="_blank" rel="noopener">GitHub ↗</a>
@@ -451,6 +488,37 @@
       <span class="chip">日本 SPReAD 1000</span>
     </div>
     <p class="reveal d3">他们大多是「<b>机构视角</b>、大模型、大实验室」。GitScience 是「<b>开源极客视角</b>」——<span class="am">人人可参与</span>的 AI 科学协作网络。就像 GitHub 刚出现时，对软件工程做的那件事。</p>
+  </div>
+</section>
+
+<!-- 进展 -->
+<section class="band" id="status">
+  <div class="wrap">
+    <div class="eyebrow reveal">进展 / Traction</div>
+    <h2 class="h2 reveal d1">不是 PPT 创业，<br>是已经在跑的开源现金流</h2>
+    <p class="stats-note reveal d2">GitScience 背靠<b>已经在跑</b>的开源项目:虾盘 U-Claw 在 GitHub 收获真实用户与现金流，贺去病 AI 工作室累计开源 <b>85</b> 个仓库——从这里，逐步开源整条科研流水线。</p>
+    <div class="stats">
+      <div class="stat reveal"><div class="v">1623<small>★</small></div><div class="l">U-Claw GitHub Stars<br>(现金流底座)</div></div>
+      <div class="stat reveal d1"><div class="v">377</div><div class="l">U-Claw Forks<br>真实开发者复用</div></div>
+      <div class="stat reveal d2"><div class="v">85</div><div class="l">开源仓库<br>贺去病 AI 工作室</div></div>
+      <div class="stat reveal d3"><div class="v">3</div><div class="l">科研工具线<br>科研虾·体检·实验 Fork</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="eyebrow reveal">常见问题 / FAQ</div>
+    <h2 class="h2 reveal d1">关于 GitScience</h2>
+    <div class="faq reveal d2">
+      <details><summary>GitScience 是什么？<span class="pm">+</span></summary><div class="a">AI 时代的开源科研基础设施。把科学从「写论文」变成「提交实验」——任何人提交一个科研设想，AI 帮他拆成可执行的实验方案，别人可以 Fork、复现、改进，数据回流持续迭代。</div></details>
+      <details><summary>这是开源的吗？<span class="pm">+</span></summary><div class="a">是。门户与核心工具均开源(MIT)。论文体检 PaperGuard 已在 <a href="https://github.com/dongsheng123132/paperguard" target="_blank" rel="noopener">GitHub</a> 开源可用，本门户源码亦公开。</div></details>
+      <details><summary>和 Sakana AI Scientist、AlphaFold、自驱实验室有什么不同？<span class="pm">+</span></summary><div class="a">它们大多是「机构视角、大模型、大实验室」；GitScience 是「开源极客视角」——<b>人人可参与</b>的 AI 科学协作网络。就像 GitHub 当年对软件工程做的那件事。</div></details>
+      <details><summary>现在能用什么？<span class="pm">+</span></summary><div class="a">论文体检 <b>PaperGuard 已开源可用</b>(统计自洽 + 图像查重 + 机构/作者级撤稿核对，含在线体验)；科研虾 SciClaw 内测中；实验 Fork 内核构建中。</div></details>
+      <details><summary>我怎么参与？<span class="pm">+</span></summary><div class="a">提交你的科研设想、Fork 一个实验、贡献数据或代码，或直接联系贺去病 AI 工作室共建。欢迎高校实验室、地方科创、开源开发者加入。</div></details>
+      <details><summary>和「虾盘 U-Claw」是什么关系？<span class="pm">+</span></summary><div class="a">U-Claw 是团队已经在跑的开源项目、现金流底座；GitScience 是面向科研的产品线，同属贺去病 AI 工作室。前者养后者，让我们能<b>不烧钱</b>地长期做开源科研。</div></details>
+    </div>
   </div>
 </section>
 
