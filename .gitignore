@@ -1,0 +1,14 @@
+# 内部策略 / 构思文档 —— 不发布
+ChatGPT-*.md
+11..txt
+*.doc
+*.docx
+新建*
+
+# 临时产物
+_*.png
+_*.mjs
+.vercel/
+node_modules/
+.DS_Store
+Thumbs.db
