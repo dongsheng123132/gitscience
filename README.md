@@ -5,6 +5,12 @@ GitScience 品牌门户页 —— **论文过时了，实验上 GitHub**。
 AI 时代的开源科研基础设施。把科学从「写论文」变成「提交实验」。
 旗下三条线:科研虾 SciClaw(找 Gap)、论文体检 PaperGuard(查)、实验 Fork(验证)。
 
+<p align="center">
+  <a href="https://gitscience.net"><img src="docs/screenshot.png" alt="GitScience 门户首页 — 论文会过时，实验上 GitScience；AI 把每个设想拆成可执行方案，被全世界 Fork、复现、改进" width="860"></a>
+</p>
+
+<p align="center"><b><a href="https://gitscience.net">🔬 在线访问 gitscience.net</a></b></p>
+
 ## 技术
 
 纯静态单文件:`index.html`(内联 CSS / JS,无构建步骤,无第三方依赖)。
